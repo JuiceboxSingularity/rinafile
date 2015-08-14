@@ -1,7 +1,12 @@
 
 FLAGS=-I/include -lrina
 
-all: rinafile
+all: rinaserver rinaclient
 
-rinafile: rinafile.cc
-	g++ $(FLAGS) rinafile.cc -o rinafile
+rinaserver: rinaserver.cc
+	g++ $(FLAGS) rinaserver.cc -o rinaserver
+
+rinaclient: rinaclient.cc
+	g++ $(FLAGS) rinaclient.cc -o rinaclient
+
+

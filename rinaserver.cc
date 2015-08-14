@@ -9,10 +9,6 @@ int main(){
 	rina::ApplicationRegistrationInformation ari;
 	
 	ari.ipcProcessId = 0;
-	std::string x;
-	if (x == std::string()){
-		std::cout << "????";
-	}
 	
 	std::string app_name = "rina.apps.rinafile.server";
 	std::string app_instance = "1";
@@ -44,13 +40,17 @@ int main(){
 		throw ApplicationRegistrationException("Failed to register application");
 	}
 
+	cout << "REGISTERED\n";
+
 	rina::FlowInformation flow;
 	int buffer_size = 255;
 	char *buffer = new char[buffer_size];
 
 	while(true){
+	
 		event = ipcEventProducer->eventWait();
 		int port_id = 0;
+		cout << "REGISTERED\n";
 		DeallocateFlowResponseEvent *resp = NULL;
 
 		if (!event)
