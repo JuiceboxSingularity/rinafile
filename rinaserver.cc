@@ -50,7 +50,6 @@ int main(){
 	
 		event = ipcEventProducer->eventWait();
 		int port_id = 0;
-		cout << "REGISTERED\n";
 		DeallocateFlowResponseEvent *resp = NULL;
 
 		if (!event)
@@ -59,7 +58,10 @@ int main(){
 
 		switch (event->eventType){
 		case FLOW_ALLOCATION_REQUESTED_EVENT:
-				flow = ipcManager->allocateFlowResponse(*dynamic_cast<FlowRequestEvent*>(event), 0, true);
+			for (int x = 0; x< 100000; x++){
+				cout << "REGISTERED\n";
+			}
+			flow = ipcManager->allocateFlowResponse(*dynamic_cast<FlowRequestEvent*>(event), 0, true);
 				port_id = flow.portId;
 				
 				try {
@@ -71,6 +73,9 @@ int main(){
 				} catch (rina::IPCException e){
 
 				}
+		default:
+			cout << "WHAT?" << flush;
+			break;
 
 		}
 	}

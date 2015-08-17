@@ -8,10 +8,12 @@ int main(){
 
 	rina::initialize("INFO", "");
 
+	//string app_name = "rina.apps.rinafile.client";
 	string app_name = "rina.apps.rinafile.client";
 	string app_instance = "1";
 
-	string server_name = "rina.apps.rinafile.server";
+	//string server_name = "rina.apps.rinafile.server";
+	string server_name = "rina.apps.echotime.server";
 	string server_instance = "1";
 
 	IPCEvent* event;
