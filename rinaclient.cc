@@ -1,5 +1,6 @@
 #include <librina/librina.h>
 #include <iostream>
+#include <unistd.h>
 
 using namespace std;
 using namespace rina;
@@ -43,7 +44,11 @@ int main(){
 
 	cout << flow.portId << "\n" << flush;
 
+	char *buffer = "HELLO \0";
 
 	while(true){
+		ipcManager->writeSDU(flow.portId, buffer, 7);
+		cout << "SENT PING\n";
+		sleep(1);
 	}
 }
